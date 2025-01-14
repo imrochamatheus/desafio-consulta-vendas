@@ -27,15 +27,14 @@ public class SaleController {
 			@RequestParam(defaultValue = "") String minDate,
 			@RequestParam(defaultValue = "") String maxDate,
 			@RequestParam(defaultValue = "") String name,
-			Pageable pageable
-	) {
-
+			Pageable pageable) {
 		return ResponseEntity.ok(this.service.getSaleReport(minDate, maxDate, name, pageable));
 	}
 
 	@GetMapping(value = "/summary")
-	public ResponseEntity<?> getSummary() {
-		// TODO
-		return null;
+	public ResponseEntity<?> getSummary(
+			@RequestParam(defaultValue = "") String minDate,
+			@RequestParam(defaultValue = "") String maxDate) {
+		return ResponseEntity.ok(this.service.getSaleSummary(minDate, maxDate));
 	}
 }
